@@ -1,20 +1,20 @@
 ## OpenJDK and Java / JS tools based on CentOS:7
 
-This is docker image provides OpenJDK and command lines build tools. 
+This docker image provides OpenJDK and other java and js command line build tools. 
 
 ### Source Repository
 
 @see on [GitHub](https://github.com/spalarus/docker-openjava-kit) ([Dockerfile](https://github.com/spalarus/docker-openjava-kit/blob/master/Dockerfile))
 
-### Purpose
+### Use Case
 
-* JRE
-* Jenkins slave
-* base image for java services
+* Jenkins agent
 * command-line development
 
 ### Tools
 
+
+* openjdk 11.0.6
 * vi
 * subversion
 * git
@@ -23,9 +23,9 @@ This is docker image provides OpenJDK and command lines build tools.
 * nodejs 12.16.1
 * npm 6.13.4
 
-### Select java implementation 
+### RUN 
 
-**Run container**
+**OpenJDK java binary**
 ```bash
 docker run -it --rm spalarus/openjava-kit java -version 
 
@@ -38,7 +38,6 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.6+10-LTS, mixed mode, sharing)
 
 | VAR                  | Description                                   | Value                       |
 |----------------------|-----------------------------------------------|-----------------------------|
-| JDK_IMPLEMENTATION   | switch selecting JDK                          | ORACLEJDK / OPENJDK         |
 | MVN_IMPLEMENTATION   | switch for MVN-Version                        | MVN33 / MVN35 / MVN36       |
 | JENKINS_PWD          | set password for jenkins user                 | password for jenkins usr    |
 | LAUNCH_JNLP          | run jenkins JNLP agent                        | true / false                |
@@ -49,4 +48,4 @@ This image can be used for [Jenkins Docker Plugin](https://wiki.jenkins.io/displ
 
 ### Docker Agent via JNLP
 
-Set VAR LAUNCH_JNLP to true.
+Set VAR: LAUNCH_JNLP=true.
