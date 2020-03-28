@@ -6,10 +6,8 @@ if [[ ! -z "${JENKINS_PWD}" ]]
 then
     if [ "${JENKINS_PWD}" = "NONE" ]
     then
-        echo "random jenkins pwd"
         echo "jenkins:`openssl rand -hex 13`" | chpasswd
     else
-        echo "update jenkins pwd"
         echo "jenkins:${JENKINS_PWD}" | chpasswd
     fi
 fi
