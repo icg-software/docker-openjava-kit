@@ -19,9 +19,9 @@ This docker image provides OpenJDK and other java and js command line build tool
 * subversion
 * git
 * mvn (3.3, 3.5, 3.6)
-* gradle 6.2.2
-* nodejs 12.16.1
-* npm 6.13.4
+* gradle 6.4.1
+* nodejs 12.17.0
+* npm 6.14.4
 
 ### RUN 
 
