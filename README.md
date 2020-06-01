@@ -43,7 +43,7 @@ OpenJDK 64-Bit Server VM 18.9 (build 11.0.7+10-LTS, mixed mode, sharing)
 
 ### Docker Agent via SSH
 
-This image can be used [Jenkins Docker Plugin](https://wiki.jenkins.io/display/JENKINS/Docker+Plugin) as ssh-slave. You have to configure jenkins password by VAR JENKINS_PWD. Jenkins start sshd bei default (/usr/sbin/sshd -D) and expose port 22.
+This image can be used as ssh-slave for [Jenkins Docker Plugin](https://wiki.jenkins.io/display/JENKINS/Docker+Plugin). You have to configure jenkins password by VAR JENKINS_PWD. Jenkins start sshd bei default (/usr/sbin/sshd -D) and expose port 22.
 
 ### Docker Agent via JNLP
 
