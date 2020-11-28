@@ -14,23 +14,23 @@ This docker image provides OpenJDK and other java and js command line build tool
 ### Tools
 
 
-* openjdk 11.0.7
+* openjdk 11.0.9
 * vi
 * subversion
 * git
 * mvn (3.3, 3.5, 3.6)
-* gradle 6.4.1
-* nodejs 12.17.0
-* npm 6.14.4
+* gradle 6.7.1
+* nodejs 14.15.1
+* npm 6.14.8
 
 ### RUN 
 
 **OpenJDK java binary**
 ```bash
 docker run -it --rm spalarus/openjava-kit java -version 
-openjdk 11.0.7 2020-04-14 LTS
-OpenJDK Runtime Environment 18.9 (build 11.0.7+10-LTS)
-OpenJDK 64-Bit Server VM 18.9 (build 11.0.7+10-LTS, mixed mode, sharing)
+openjdk version "11.0.9" 2020-10-20 LTS
+OpenJDK Runtime Environment 18.9 (build 11.0.9+11-LTS)
+OpenJDK 64-Bit Server VM 18.9 (build 11.0.9+11-LTS, mixed mode, sharing)
 ```
  
 ### Environment VARs
