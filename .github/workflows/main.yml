@@ -18,7 +18,7 @@ jobs:
     steps:
       - 
         name: Publish Action
-        uses: icg-software/docker-push-action@v0.4.10
+        uses: icg-software/docker-push-action@v0.4.11
         with:
           repoOwner: ${{ github.repository_owner }}
           githubUser: ${{ github.actor }}
