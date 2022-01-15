@@ -23,4 +23,4 @@ jobs:
           repoOwner: ${{ github.repository_owner }}
           githubUser: ${{ github.actor }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          dockerName: 'karaf-base'
+          dockerName: 'openjava-kit'
