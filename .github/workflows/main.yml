@@ -1,0 +1,26 @@
+name: Publish Docker image
+
+on:
+  push:
+    branches:
+      # Push events on main branch
+      - main
+    tags:
+      - v*
+
+jobs:
+  push_to_registries:
+    name: Push Docker image to multiple registries
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - 
+        name: Publish Action
+        uses: icg-software/docker-push-action@v0.4.8
+        with:
+          repoOwner: ${{ github.repository_owner }}
+          githubUser: ${{ github.actor }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          dockerName: 'karaf-base'
