@@ -8,20 +8,18 @@ ARG SYSTEM_LANG="de"
 ARG SYSTEM_LOCALE="DE"
 ARG SYSTEM_CHARSET="UTF-8"
 
-ARG JAVA_VERSION_MAJOR=11
+ARG JAVA_VERSION_MAJOR=1.8
 ARG RHEL_OPENJDK_PKG_NAME=java-${JAVA_VERSION_MAJOR}-openjdk
-ARG MVN33_VERSION=3.3.9
-ARG MVN35_VERSION=3.5.4
-ARG MVN36_VERSION=3.6.3
-ARG MVN38_VERSION=3.8.4
+ARG MVN38_VERSION=3.8.8
+ARG MVN39_VERSION=3.9.9
 ARG APACHE_MIRROR=mirrors.sonic.net
 ARG GRADLE_VERSION=6.7.1
-ARG LTS_NODEJS=14
+ARG LTS_NODEJS=22
 ARG JENKINS_USER_NAME=jenkins
 ARG JENKINS_USER_ID=1000
 ARG JNLP_VERSION=4.6
 ARG AGENT_WORKDIR=/home/${JENKINS_USER_NAME}/agent
-ARG JAVA_PATH=/usr/lib/jvm/java-11-openjdk
+ARG JAVA_PATH=/usr/lib/jvm/java-8-openjdk
 
 # complete RHEL installation
 
@@ -46,10 +44,8 @@ ADD ./initjdk.sh /sbin/initjdk.sh
 ADD ./entrypoint.sh /entrypoint.sh
 
 RUN \
-	sed -ri "s/MVN33_VERSION=/MVN33_VERSION=${MVN33_VERSION}/g" /bin/switch_mvn_impl.sh && \
-    sed -ri "s/MVN35_VERSION=/MVN35_VERSION=${MVN35_VERSION}/g" /bin/switch_mvn_impl.sh && \
-    sed -ri "s/MVN36_VERSION=/MVN36_VERSION=${MVN36_VERSION}/g" /bin/switch_mvn_impl.sh && \
-    sed -ri "s/MVN38_VERSION=/MVN38_VERSION=${MVN38_VERSION}/g" /bin/switch_mvn_impl.sh
+	sed -ri "s/MVN38_VERSION=/MVN38_VERSION=${MVN38_VERSION}/g" /bin/switch_mvn_impl.sh && \
+    sed -ri "s/MVN39_VERSION=/MVN39_VERSION=${MVN39_VERSION}/g" /bin/switch_mvn_impl.sh
 
 RUN \
 	chmod u+x /bin/switch_mvn_impl.sh && chmod u+x /sbin/initjdk.sh  && chmod u+x /entrypoint.sh && \
@@ -60,22 +56,14 @@ RUN \
 # install maven
     
 RUN \
-	wget http://${APACHE_MIRROR}/apache/maven/maven-3/${MVN33_VERSION}/binaries/apache-maven-${MVN33_VERSION}-bin.tar.gz && \
-    tar -zxf apache-maven-${MVN33_VERSION}-bin.tar.gz && \
-    tar -C /usr/local -xzf apache-maven-${MVN33_VERSION}-bin.tar.gz && \
-    rm -f apache-maven-${MVN33_VERSION}-bin.tar.gz && \
-    wget http://${APACHE_MIRROR}/apache/maven/maven-3/${MVN35_VERSION}/binaries/apache-maven-${MVN35_VERSION}-bin.tar.gz && \
-    tar -zxf apache-maven-${MVN35_VERSION}-bin.tar.gz && \
-    tar -C /usr/local -xzf apache-maven-${MVN35_VERSION}-bin.tar.gz && \
-    rm -f apache-maven-${MVN35_VERSION}-bin.tar.gz && \
-    wget http://${APACHE_MIRROR}/apache/maven/maven-3/${MVN36_VERSION}/binaries/apache-maven-${MVN36_VERSION}-bin.tar.gz && \
-    tar -zxf apache-maven-${MVN36_VERSION}-bin.tar.gz && \
-    tar -C /usr/local -xzf apache-maven-${MVN36_VERSION}-bin.tar.gz && \
-    rm -f apache-maven-${MVN36_VERSION}-bin.tar.gz && \
-    wget http://${APACHE_MIRROR}/apache/maven/maven-3/${MVN38_VERSION}/binaries/apache-maven-${MVN38_VERSION}-bin.tar.gz && \
+	wget http://${APACHE_MIRROR}/apache/maven/maven-3/${MVN38_VERSION}/binaries/apache-maven-${MVN38_VERSION}-bin.tar.gz && \
     tar -zxf apache-maven-${MVN38_VERSION}-bin.tar.gz && \
     tar -C /usr/local -xzf apache-maven-${MVN38_VERSION}-bin.tar.gz && \
-    rm -f apache-maven-${MVN38_VERSION}-bin.tar.gz
+    rm -f apache-maven-${MVN38_VERSION}-bin.tar.gz && \
+    wget http://${APACHE_MIRROR}/apache/maven/maven-3/${MVN39_VERSION}/binaries/apache-maven-${MVN39_VERSION}-bin.tar.gz && \
+    tar -zxf apache-maven-${MVN39_VERSION}-bin.tar.gz && \
+    tar -C /usr/local -xzf apache-maven-${MVN39_VERSION}-bin.tar.gz && \
+    rm -f apache-maven-${MVN39_VERSION}-bin.tar.gz
     
 # install gradle
 
