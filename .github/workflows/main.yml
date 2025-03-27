@@ -4,7 +4,7 @@ on:
   push:
     branches:
       # Push events on main branch
-      - main
+      - java-1.8
     tags:
       - v*
 
